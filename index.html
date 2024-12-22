@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bloque les grands RDV</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>💖 Bloque les Rendez-vous ! 💖</h1>
+    </div>
+    <div class="content">
+      <p class="description">
+        Si tu veux bloquer tous les autres rendez-vous de ta copine pour la fête, entre son:
+      </p>
+      <div class="input-container">
+        <label for="phoneNumber">Numéro de téléphone :</label>
+        <input type="text" id="phoneNumber" placeholder="Exemple: +225 0701590456">
+      </div>
+      <p class="price">1000 XOF</p>
+      <button class="pay-button" id="blockButton">Bloquer maintenant</button>
+      <div class="success-message" id="successMessage" style="display: none;">
+        ✅ Le WhatsApp de la personne est bloqué avec succès !
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('blockButton').addEventListener('click', function () {
+      // Récupérer le numéro saisi
+      const phoneNumber = document.getElementById('phoneNumber').value.trim();
+
+      if (phoneNumber === '') {
+        alert('Veuillez entrer un numéro de téléphone valide.');
+        return;
+      }
+
+      // Encoder le message à envoyer
+      const message = `Bonjour, je souhaite bloquer ce numéro : ${phoneNumber} pour la fête.`;
+      const whatsappLink = `https://wa.me/2250705607226?text=${encodeURIComponent(message)}`;
+
+      // Rediriger l'utilisateur vers WhatsApp
+      window.location.href = whatsappLink;
+
+      // Afficher un message de succès (optionnel)
+      const successMessage = document.getElementById('successMessage');
+      successMessage.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
