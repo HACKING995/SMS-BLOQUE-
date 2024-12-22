@@ -39,28 +39,7 @@
       </div>
     </div>
   </div>
-
-  <script>
-    document.getElementById('blockButton').addEventListener('click', function () {
-      // Récupérer le numéro saisi
-      const phoneNumber = document.getElementById('phoneNumber').value.trim();
-
-      if (phoneNumber === '') {
-        alert('Veuillez entrer un numéro de téléphone valide.');
-        return;
-      }
-
-      // Encoder le message à envoyer
-      const message = `Bonjour, je souhaite bloquer ce numéro ou envoyer  des bugs : *${phoneNumber}* pour la fête votre  numéro pour le dépôt _soutient 1000xof_.`;
-      const whatsappLink = `https://wa.me/2250705607226?text=${encodeURIComponent(message)}`;
-
-      // Rediriger l'utilisateur vers WhatsApp
-      window.location.href = whatsappLink;
-
-      // Afficher un message de succès (optionnel)
-      const successMessage = document.getElementById('successMessage');
-      successMessage.style.display = 'block';
-    });
-  </script>
+<script src="script.js"></script>
+  
 </body>
 </html>
