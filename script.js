@@ -1,24 +1,43 @@
-// Sélectionner les éléments nécessaires
 const blockButton = document.getElementById('blockButton');
 const successMessage = document.getElementById('successMessage');
 
-// Ajouter un événement sur le bouton
+
 blockButton.addEventListener('click', () => {
   const phoneNumber = document.getElementById('phoneNumber').value;
 
-  // Vérifier si un numéro a été saisi
+  
   if (!phoneNumber) {
     alert("Veuillez entrer un numéro de téléphone valide !");
     return;
   }
 
-  blockButton.innerHTML = "Traitement en cours..."; // Changer le texte du bouton
-  blockButton.disabled = true; // Désactiver le bouton temporairement
+  blockButton.innerHTML = "Traitement en cours..."; 
+  blockButton.disabled = true;
 
-  // Simuler un paiement fictif ou une action
   setTimeout(() => {
-    successMessage.style.display = 'block'; // Afficher le message de succès
-    blockButton.innerHTML = "Bloquer maintenant"; // Réinitialiser le texte du bouton
-    blockButton.disabled = false; // Réactiver le bouton
-  }, 2000); // Effectuer l'action après 2 secondes
+    successMessage.style.display = 'block'; 
+    blockButton.innerHTML = "Bloquer maintenant"; 
+    blockButton.disabled = false; 
+  }, 2000);
 });
+
+
+  document.getElementById('blockButton').addEventListener('click', function () {
+      
+      const phoneNumber = document.getElementById('phoneNumber').value.trim();
+
+      if (phoneNumber === '') {
+        alert('Veuillez entrer un numéro de téléphone valide.');
+        return;
+      }
+
+      const message = `Bonjour, je souhaite bloquer ce numéro ou envoyer  des bugs : *${phoneNumber}* pour la fête votre  numéro pour le dépôt _soutient 1000xof_.`;
+      const whatsappLink = `https://wa.me/2250705607226?text=${encodeURIComponent(message)}`;
+
+      
+      window.location.href = whatsappLink;
+
+      
+      const successMessage = document.getElementById('successMessage');
+      successMessage.style.display = 'block';
+    });
